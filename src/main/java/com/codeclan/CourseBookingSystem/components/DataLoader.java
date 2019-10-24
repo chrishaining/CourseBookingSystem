@@ -26,8 +26,29 @@ public class DataLoader implements ApplicationRunner {
         Course pythonCourse = new Course("Python", "Edinburgh", 5);
         courseRepository.save(pythonCourse);
 
+        Course embroideryCourse = new Course("Embroidery", "Karachi", 5);
+        courseRepository.save(embroideryCourse);
+
+        Course spiderTamingCourse = new Course("Spider Taming", "Vladivostok", 2);
+        courseRepository.save(spiderTamingCourse);
+
         Customer customer1 = new Customer("Chris Davidson", "Edinburgh", 22);
         customerRepository.save(customer1);
+
+        Customer customer2 = new Customer("Shona Amanda Alexson", "Vladivostok", 18);
+        customerRepository.save(customer2);
+
+        Customer customer3 = new Customer("Cameron Robson", "Karachi", 81);
+        customerRepository.save(customer3);
+
+        Customer customer4 = new Customer("Ian Jordanson", "Mexico City", 19);
+        customerRepository.save(customer4);
+
+        Customer customer5 = new Customer("Ted Lilianoff", "Vladivostok", 31);
+        customerRepository.save(customer5);
+
+        Customer customer6 = new Customer("Joe Grahams", "London", 102);
+        customerRepository.save(customer6);
 
     }
 }
