@@ -1,13 +1,30 @@
 package com.codeclan.CourseBookingSystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name="bookings")
 public class Booking {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="date")
     private String date;
 
-    public Booking(String date) {
+    @JsonIgnoreProperties("bookings")
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
+    public Booking(String date, Customer customer) {
         this.date = date;
+        this.customer = customer;
     }
 
     public Booking() {
@@ -27,5 +44,13 @@ public class Booking {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
