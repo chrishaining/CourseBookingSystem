@@ -25,7 +25,6 @@ public class CourseRepositoryImpl implements CourseRepositoryCustom {
         try {
             Criteria criteria = session.createCriteria(Course.class);
             criteria.createAlias("bookings", "bookingsAlias");
-//            criteria.add(Restrictions.eq("bookingsAlias.customer_id", customerId));
             criteria.add(Restrictions.eq("bookingsAlias.customer", customerId));
 
             results = criteria.list();
